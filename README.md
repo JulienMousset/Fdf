@@ -14,3 +14,10 @@ A project about creating a simplified 3D graphic representation of a relief land
 Execute the program with the map file of your choice like this : `./fdf yourfile`
 
 You can also use the test maps located in the `/Maps` directory.
+
+## Screenshots
+
+![](Images/France.png)
+![](Images/France_palette_zoom.png)
+![](Images/Japan_palette.png)
+![](Images/Pylone.png)
