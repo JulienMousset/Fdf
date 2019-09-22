@@ -6,13 +6,15 @@
 #    By: jmousset <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/04 16:43:26 by jmousset          #+#    #+#              #
-#    Updated: 2019/08/27 10:49:35 by jmousset         ###   ########.fr        #
+#    Updated: 2019/09/22 15:48:39 by jmousset         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 FLAGS = -Wall -Wextra -Werror
+
+HDR = libft.h
 
 SRCS = ft_memset.c\
 	   ft_bzero.c\
@@ -81,21 +83,29 @@ SRCS = ft_memset.c\
 
 OBJS = $(SRCS:.c=.o)
 
-HDR = libft.h
+DEPS = $(SRCS:c=.d)
 
 all: $(NAME)
 
-$(NAME):
-	gcc $(FLAGS) -c $(SRCS) -I $(HDR)
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+$(NAME): $(OBJS)
+	@gcc $(FLAGS) -c $(SRCS) -I $(HDR)
+	@ar rc $(NAME) $(OBJS)
+	@ranlib $(NAME)
+
+-include $(DEPS)
+
+./%.o : ./%.c makefile
+	@gcc $(FLAGS) -I -MMD -MP -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
+	@rm -f $(DEPS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
+
+.SILENT:
 
 .PHONY: all clean fclean re
