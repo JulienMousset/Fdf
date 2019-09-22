@@ -6,7 +6,7 @@
 /*   By: jmousset <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 10:42:50 by jmousset          #+#    #+#             */
-/*   Updated: 2019/09/15 15:21:48 by jmousset         ###   ########.fr       */
+/*   Updated: 2019/09/22 16:43:47 by jmousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int		count_columns(char *s)
 	{
 		while (s[i] == ' ')
 			i++;
+		if (ft_isascii(s[i]) == 0)
+			no_data_found();
 		if (s[i])
 			res++;
 		while (s[i] != ' ' && s[i] != '\0')
@@ -60,17 +62,20 @@ int		count_lines(t_map *map, char *file)
 	int		read;
 	int		fd;
 	int		i;
+	int		previous;
 
 	i = 0;
 	map->nb_columns = 0;
+	previous = 0;
 	fd = open(file, O_RDONLY);
 	while ((read = get_next_line(fd, &map->line)))
 	{
 		map->nb_columns = count_columns(map->line);
+		previous = map->nb_columns;
 		i++;
 		ft_memdel((void **)&(map->line));
 	}
-	if (map->nb_columns == 0)
+	if (map->nb_columns <= 1)
 		no_data_found();
 	close(fd);
 	return (i);
