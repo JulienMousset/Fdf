@@ -17,7 +17,7 @@ You can also use the test maps located in the `/Maps` directory.
 
 ## Screenshots
 
-![](Images/France.png)
-![](Images/France_palette_zoom.png)
-![](Images/Japan_palette.png)
-![](Images/Pylone.png)
+![](Screenshots/France.png)
+![](Screenshots/France_palette_zoom.png)
+![](Screenshots/Japan_palette.png)
+![](Screenshots/Pylone.png)
