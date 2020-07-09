@@ -6,7 +6,7 @@
 /*   By: jmousset <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/24 11:17:37 by jmousset          #+#    #+#             */
-/*   Updated: 2019/09/15 14:18:08 by jmousset         ###   ########.fr       */
+/*   Updated: 2020/07/09 12:24:52 by julien           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <math.h>
 # include <fcntl.h>
 # include <stdio.h>
-# include "mlx.h"
+# include "minilibx/mlx.h"
 # include "libft/libft.h"
 
 # define WIN_WIDTH 1920
