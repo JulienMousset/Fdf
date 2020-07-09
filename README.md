@@ -15,6 +15,10 @@ Execute the program with the map file of your choice like this : `./fdf yourfile
 
 You can also use the test maps located in the `/Maps` directory.
 
+## Warning
+
+This program is using the minilibx, a Mac OS graphic library (developped at 42 school) which we are using in our first graphic programming projects. Therefore, it won't compile if you are on Linux.
+
 ## Screenshots
 
 ![](Screenshots/France.png)
